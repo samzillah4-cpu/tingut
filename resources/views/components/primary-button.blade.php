@@ -1,0 +1,3 @@
+<button {{ $attributes->merge(['type' => 'submit', 'class' => 'inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 shadow-md hover:shadow-lg', 'style' => 'background-color: ' . config('settings.primary_color', '#1a6969') . '; border-color: ' . config('settings.primary_color', '#1a6969') . '; --tw-ring-color: ' . config('settings.primary_color', '#1a6969') . ';']) }} onmouseover="this.style.backgroundColor='#F9F1D5'; this.style.color='#155E61';" onmouseout="this.style.backgroundColor='{{ config('settings.primary_color', '#1a6969') }}'; this.style.color='white';">
+    {{ $slot }}
+</button>

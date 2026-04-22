@@ -1,0 +1,298 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Product Image Zoom Effects */
+.product-image-container {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 2px solid #e5e7eb;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-image-container:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-image-zoom {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-image-container:hover .product-image-zoom {
+    transform: scale(1.1);
+}
+
+/* Thumbnail Images */
+.thumbnail-container {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.thumbnail-container:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.thumbnail-image {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.thumbnail-container:hover .thumbnail-image {
+    transform: scale(1.1);
+}
+
+/* Related Products */
+.related-product-card {
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.related-product-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+.related-product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.related-product-card:hover .related-product-image {
+    transform: scale(1.08);
+}
+
+/* Responsive Login/Signup Modals */
+/* Small mobile modal */
+@media (max-width: 400px) {
+    .modal-sm-mobile .modal-content {
+        margin: 0.5rem;
+        border-radius: 12px;
+    }
+
+    .modal-sm-mobile .modal-header {
+        padding: 0.75rem 0.75rem 0.5rem;
+    }
+
+    .modal-sm-mobile .modal-title {
+        font-size: 1rem !important;
+    }
+
+    .modal-sm-mobile .modal-body {
+        padding: 0.75rem;
+    }
+
+    .modal-sm-mobile .form-label {
+        font-size: 0.8rem !important;
+    }
+
+    .modal-sm-mobile .form-control {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.65rem;
+    }
+
+    .modal-sm-mobile .btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+    }
+}
+
+/* Fullscreen modal on small devices */
+@media (max-width: 576px) {
+    .modal-fullscreen-sm-down .modal-content {
+        min-height: 100vh;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .modal-fullscreen-sm-down .modal-header {
+        padding: 0.75rem;
+        flex-shrink: 0;
+    }
+
+    .modal-fullscreen-sm-down .modal-title {
+        font-size: 1rem;
+    }
+
+    .modal-fullscreen-sm-down .modal-body {
+        padding: 1rem;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-fullscreen-sm-down .form-label {
+        font-size: 0.85rem;
+    }
+
+    .modal-fullscreen-sm-down .form-control,
+    .modal-fullscreen-sm-down .form-select {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.75rem;
+    }
+
+    .modal-fullscreen-sm-down .btn {
+        padding: 0.65rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .modal-fullscreen-sm-down .input-group {
+        flex-wrap: nowrap;
+    }
+
+    .modal-fullscreen-sm-down .modal-footer {
+        padding: 0.5rem;
+    }
+
+    .modal-fullscreen-sm-down .modal-footer p {
+        font-size: 0.75rem;
+    }
+}
+
+/* Touch-friendly form controls for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .modal-body .form-control,
+    .modal-body .form-select {
+        min-height: 44px;
+    }
+
+    .modal-body .btn {
+        min-height: 44px;
+    }
+
+    .modal-body .form-check {
+        padding: 0.5rem 0;
+    }
+
+    .modal-body .form-check-input {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-top: 0;
+    }
+}
+
+/* Landscape mobile adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .modal-fullscreen-sm-down .modal-body {
+        max-height: 50vh;
+        padding: 0.5rem;
+    }
+
+    .modal-fullscreen-sm-down .mb-2 {
+        margin-bottom: 0.5rem !important;
+    }
+}
+
+/* General Mobile Responsive Enhancements */
+@media (max-width: 576px) {
+    /* Touch-friendly buttons */
+    .btn {
+        min-height: 44px;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Better form inputs on mobile */
+    .form-control, .form-select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        min-height: 44px;
+    }
+
+    /* Card improvements for mobile */
+    .card {
+        border-radius: 8px;
+    }
+
+    /* Image containers */
+    .product-image-container,
+    .thumbnail-container,
+    .related-product-card {
+        border-radius: 6px;
+    }
+
+    /* Better spacing */
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Mobile-friendly tables */
+    .table-responsive {
+        font-size: 14px;
+    }
+
+    /* Pagination mobile */
+    .pagination {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 14px;
+    }
+}
+
+/* Smooth scrolling for mobile */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Hide elements on mobile that aren't essential */
+@media (max-width: 576px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+}
+
+/* Show elements only on mobile */
+@media (min-width: 577px) {
+    .show-on-mobile-only {
+        display: none !important;
+    }
+}
+
+/* Better image handling on mobile */
+@media (max-width: 576px) {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Prevent horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Better modal scrolling */
+    .modal-body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Fix for iOS viewport issues */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 576px) {
+        .container, .container-sm, .container-md {
+            max-width: 100%;
+        }
+    }
+}
+
+

@@ -1,0 +1,359 @@
+/* Custom AdminLTE Theme for TingUt.no */
+/* Primary Color: #165c60 (Dark Teal) */
+/* Secondary Color: #f9f2d6 (Light Cream) */
+
+/* Override AdminLTE CSS Variables */
+:root {
+  /* Primary Colors */
+  --primary-color: #165c60;
+  --primary-color-rgb: 22, 92, 96;
+  --primary-color-hover: #12484d;
+  --primary-color-light: #1a6b6d;
+
+  /* Secondary Colors */
+  --secondary-color: #f9f2d6;
+  --secondary-color-rgb: 249, 242, 214;
+  --secondary-color-hover: #f0e8c9;
+  --secondary-color-light: #fdf9e6;
+
+  /* Background Colors */
+  --body-bg: #f8f9fa;
+  --sidebar-bg: #165c60;
+  --navbar-bg: #ffffff;
+  --card-bg: #ffffff;
+}
+
+/* AdminLTE Color Overrides */
+.bg-primary {
+  background-color: #165c60 !important;
+}
+
+.text-primary {
+  color: #165c60 !important;
+}
+
+.btn-primary {
+  background-color: #165c60 !important;
+  border-color: #165c60 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #12484d !important;
+  border-color: #12484d !important;
+}
+
+.btn-outline-primary {
+  color: #165c60 !important;
+  border-color: #165c60 !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+  background-color: #165c60 !important;
+  border-color: #165c60 !important;
+}
+
+/* Sidebar Styling */
+.main-sidebar {
+  background: var(--primary-color) !important;
+  border-right: 1px solid var(--primary-color);
+  position: fixed !important;
+  height: 100vh !important;
+  overflow-y: auto !important;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link {
+  color: #f9f2d6 !important;
+  border: none !important;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:hover,
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:focus {
+  background: linear-gradient(135deg, rgba(22, 92, 96, 0.1) 0%, rgba(26, 107, 109, 0.1) 100%) !important;
+  color: #ffffff !important;
+  border-left: 3px solid #f9f2d6 !important;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
+  background: linear-gradient(135deg, #f9f2d6 0%, #f0e8c9 100%) !important;
+  color: #165c60 !important;
+  border-left: 3px solid #f9f2d6 !important;
+  font-weight: 600 !important;
+}
+
+.sidebar-dark-primary .nav-sidebar .nav-treeview > .nav-item > .nav-link {
+  color: #f9f2d6 !important;
+  padding-left: 3rem !important;
+}
+
+.sidebar-dark-primary .nav-sidebar .nav-treeview > .nav-item > .nav-link:hover {
+  background: linear-gradient(135deg, rgba(22, 92, 96, 0.1) 0%, rgba(26, 107, 109, 0.1) 100%) !important;
+  color: #ffffff !important;
+}
+
+.sidebar-dark-primary .nav-sidebar .nav-treeview > .nav-item > .nav-link.active {
+  background: linear-gradient(135deg, rgba(249, 242, 214, 0.2) 0%, rgba(240, 232, 201, 0.2) 100%) !important;
+  color: #f9f2d6 !important;
+  font-weight: 600 !important;
+}
+
+/* Navbar Styling */
+.main-header.navbar {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #6c757d !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+  color: #165c60 !important;
+}
+
+/* Brand Logo */
+.brand-link {
+  background: var(--primary-color) !important;
+  color: #f9f2d6 !important;
+  border-bottom: 1px solid rgba(249, 242, 214, 0.2) !important;
+}
+
+.brand-link:hover {
+  background: var(--primary-color-hover) !important;
+  color: #ffffff !important;
+}
+
+/* Card Styling */
+.card {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+/* Small Box (Statistics Cards) */
+.small-box {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.small-box .inner {
+  padding: 20px;
+}
+
+.small-box .icon {
+  background: linear-gradient(135deg, #165c60 0%, #1a6b6d 100%);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.small-box.bg-info .icon {
+  background: linear-gradient(135deg, #165c60 0%, #1a6b6d 100%) !important;
+}
+
+.small-box.bg-success .icon {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+}
+
+.small-box.bg-warning .icon {
+  background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%) !important;
+}
+
+/* Table Styling */
+.table thead th {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #165c60;
+  color: #165c60;
+  font-weight: 600;
+}
+
+.table tbody tr:hover {
+  background-color: #f9f2d6 !important;
+}
+
+/* Badge Styling */
+.badge-primary {
+  background-color: #165c60 !important;
+}
+
+.badge-success {
+  background-color: #28a745 !important;
+}
+
+.badge-warning {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+.badge-danger {
+  background-color: #dc3545 !important;
+}
+
+.badge-info {
+  background-color: #17a2b8 !important;
+}
+
+/* Alert Styling */
+.alert-primary {
+  background-color: #f9f2d6 !important;
+  border-color: #165c60 !important;
+  color: #165c60 !important;
+}
+
+.alert-info {
+  background-color: #f9f2d6 !important;
+  border-color: #165c60 !important;
+  color: #165c60 !important;
+}
+
+/* Form Controls */
+.form-control:focus {
+  border-color: #165c60 !important;
+  box-shadow: 0 0 0 0.2rem rgba(22, 92, 96, 0.25) !important;
+}
+
+/* Pagination */
+.page-link {
+  color: #165c60 !important;
+  border-color: #165c60 !important;
+}
+
+.page-link:hover {
+  background-color: #165c60 !important;
+  border-color: #165c60 !important;
+  color: #ffffff !important;
+}
+
+.page-item.active .page-link {
+  background-color: #165c60 !important;
+  border-color: #165c60 !important;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  background-color: #f8f9fa;
+  margin-left: 250px !important;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background-color: transparent;
+}
+
+.breadcrumb-item.active {
+  color: #165c60 !important;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown-item:hover {
+  background-color: #f9f2d6 !important;
+  color: #165c60 !important;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar .sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar .sidebar-nav::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.sidebar .sidebar-nav::-webkit-scrollbar-thumb {
+  background: #165c60;
+  border-radius: 3px;
+}
+
+.sidebar .sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: #12484d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .main-sidebar {
+    background-color: #ffffff !important;
+    position: relative !important;
+  }
+
+  .content-wrapper {
+    margin-left: 0 !important;
+  }
+
+  .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link {
+    color: #6c757d !important;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: #165c60 !important;
+    color: #ffffff !important;
+    border-color: #165c60;
+  }
+}
+
+/* Loading animation */
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #165c60;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #165c60 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
