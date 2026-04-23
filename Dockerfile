@@ -8,7 +8,7 @@ RUN composer install --no-dev --no-interaction --no-autoloader
 
 COPY . .
 
-# RUN composer dump-autoload --optimize
+RUN composer dump-autoload --optimize
 
 FROM node:24-alpine AS node_builder
 
