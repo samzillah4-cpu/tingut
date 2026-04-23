@@ -55,6 +55,7 @@ docker-run-mysql_tingut:
 	docker run -d \
 		--name mysql_tingut \
 		--network $(NETWORK) \
+		-v $HOME/tingut-mysql:/var/lib/mysql \
 		-e MYSQL_DATABASE=tingut \
 		-e MYSQL_USER=user \
 		-e MYSQL_PASSWORD=password \
