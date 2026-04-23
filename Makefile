@@ -9,7 +9,7 @@ VERSION ?= latest
 # You may also change the default value if you are using a different registry as a default
 # REGISTRY ?= registry.gitlab.com/laravel-in-kubernetes/laravel-app
 REGISTRY ?= denniskainga/tingut
-ENV_FILE ?= /var/www/tingut/.env
+ENV_FILE_PATH ?= /var/www/tingut/.env
 NETWORK ?= tingut-net
 
 # Commands
@@ -39,7 +39,8 @@ docker-run-php_fpm_tingut:
 		--network $(NETWORK) \
 		--add-host=host:172.21.0.1 \
 		--restart unless-stopped \
-		--env-file $(ENV_FILE) \
+		--env-file $(ENV_FILE_PATH) \
+		-v $(PWD)/.env:/var/www/html/.env \
 		$(REGISTRY)_php_fpm:$(VERSION)
 
 docker-run-nginx_tingut:
@@ -55,7 +56,7 @@ docker-run-mysql_tingut:
 	docker run -d \
 		--name mysql_tingut \
 		--network $(NETWORK) \
-		-v $HOME/tingut-mysql:/var/lib/mysql \
+		-v $HOME/tingut-mysql-data:/var/lib/mysql \
 		-e MYSQL_DATABASE=tingut \
 		-e MYSQL_USER=user \
 		-e MYSQL_PASSWORD=password \
