@@ -32,21 +32,21 @@ docker-prune-tingut:
 	| grep -v "$(VERSION)" \
 	| xargs -r docker rmi -f
 
-docker-run-php_fpm_garage:
-	docker rm -f php_fpm_garage || true
+docker-run-php_fpm_tingut:
+	docker rm -f php_fpm_tingut || true
 	docker run -d \
-		--name php_fpm_garage \
+		--name php_fpm_tingut \
 		--network $(NETWORK) \
 		--restart unless-stopped \
 		--env-file $(ENV_FILE) \
 		$(REGISTRY)_php_fpm:$(VERSION)
 
-docker-run-nginx_garage:
-	docker rm -f nginx_garage || true
+docker-run-nginx_tingut:
+	docker rm -f nginx_tingut || true
 	docker run -d \
-		--name nginx_garage \
+		--name nginx_tingut\ \
 		--network $(NETWORK) \
 		--restart unless-stopped \
-		-e FPM_HOST=php_fpm_garage:9000 \
-		-p 8086:80 \
+		-e FPM_HOST=php_fpm_tingut:9000 \
+		-p 8080:80 \
 		$(REGISTRY)_nginx:$(VERSION)
