@@ -37,7 +37,7 @@ docker-run-php_fpm_tingut:
 	docker run -d \
 		--name php_fpm_tingut \
 		--network $(NETWORK) \
-		--add-host=host.docker.internal:host-gateway \
+		--add-host=host:0.0.0.0 \
 		--restart unless-stopped \
 		--env-file $(ENV_FILE) \
 		$(REGISTRY)_php_fpm:$(VERSION)
