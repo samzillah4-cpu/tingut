@@ -20,22 +20,9 @@ docker-build:
 
 	docker build . --target nginx_server -t ${REGISTRY}_nginx:${VERSION}
 
-docker-scan:
-	@echo "Scanning PHP-FPM image..."
-	trivy image --exit-code 0 --ignore-unfixed --severity CRITICAL,HIGH ${REGISTRY}_php_fpm:${VERSION}
-	@echo "Scanning Nginx image..."
-	trivy image --exit-code 0 --ignore-unfixed --severity CRITICAL,HIGH ${REGISTRY}_nginx:${VERSION}
-
 docker-push:
 	docker push ${REGISTRY}_php_fpm:${VERSION}
 	docker push ${REGISTRY}_nginx:${VERSION}
-
-# Run this inthe VPS
-docker-pull-php_fpm:
-	docker pull $(REGISTRY)_php_fpm:$(VERSION)
-
-docker-pull-nginx:
-	docker pull $(REGISTRY)_nginx:$(VERSION)
 
 docker-network:
 	docker network create $(NETWORK) || true
