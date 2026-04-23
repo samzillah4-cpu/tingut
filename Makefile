@@ -37,7 +37,7 @@ docker-run-php_fpm_tingut:
 	docker run -d \
 		--name php_fpm_tingut \
 		--network $(NETWORK) \
-		--add-host=host:0.0.0.0 \
+		--add-host=host:172.21.0.1 \
 		--restart unless-stopped \
 		--env-file $(ENV_FILE) \
 		$(REGISTRY)_php_fpm:$(VERSION)
