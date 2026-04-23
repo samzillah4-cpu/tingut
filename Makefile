@@ -51,7 +51,7 @@ docker-run-nginx_tingut:
 		-e FPM_HOST=php_fpm_tingut:9000 \
 		-p 8080:80 \
 		$(REGISTRY)_nginx:$(VERSION)
-docker-run-nginx_tingut:
+docker-run-mysql_tingut:
 	docker run -d \
 		--name mysql_tingut \
 		--network $(NETWORK) \
