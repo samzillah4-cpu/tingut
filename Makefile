@@ -51,3 +51,13 @@ docker-run-nginx_tingut:
 		-e FPM_HOST=php_fpm_tingut:9000 \
 		-p 8080:80 \
 		$(REGISTRY)_nginx:$(VERSION)
+docker-run-nginx_tingut:
+	docker run -d \
+		--name mysql_tingut \
+		--network $(NETWORK) \
+		-e MYSQL_DATABASE=tingut \
+		-e MYSQL_USER=user \
+		-e MYSQL_PASSWORD=password \
+		-e MYSQL_ROOT_PASSWORD=root_password_here \
+		--restart unless-stopped \
+		mysql:8.0
