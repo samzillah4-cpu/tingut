@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+# Run Laravel migrations
+# -----------------------------------------------------------
+# Ensure the database schema is up to date.
+# -----------------------------------------------------------
+
+php artisan migrate --force
+
+#======#
+#  8. Start PHP-FPM in Foreground
+#------#
+echo "Starting PHP-FPM..."
+php-fpm -F
+
+
