@@ -44,7 +44,7 @@ docker-run-php_fpm_tingut:
 docker-run-nginx_tingut:
 	docker rm -f nginx_tingut || true
 	docker run -d \
-		--name nginx_tingut\ \
+		--name nginx_tingut \
 		--network $(NETWORK) \
 		--restart unless-stopped \
 		-e FPM_HOST=php_fpm_tingut:9000 \
