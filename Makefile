@@ -16,9 +16,9 @@ NETWORK ?= tingut-net
 docker: docker-build docker-push
 
 docker-build:
-	docker build . --target php_fpm -t ${REGISTRY}_php_fpm:${VERSION}
+	docker build . --target php_fpm --no-cache -t ${REGISTRY}_php_fpm:${VERSION}
 
-	docker build . --target nginx_server -t ${REGISTRY}_nginx:${VERSION}
+	docker build . --target nginx_server --no-cache -t ${REGISTRY}_nginx:${VERSION}
 
 docker-push:
 	docker push ${REGISTRY}_php_fpm:${VERSION}
