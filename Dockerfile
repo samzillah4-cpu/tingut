@@ -4,11 +4,15 @@ WORKDIR /app
 
 COPY composer.json composer.lock ./
 
-RUN composer install --no-dev --no-interaction --no-autoloader
+# RUN composer install --no-dev --no-interaction --no-autoloader
+RUN composer install --no-dev --no-interaction --no-autoloader --no-scripts
+
 
 COPY . .
 
-RUN composer dump-autoload --optimize
+# RUN composer dump-autoload --optimize
+
+RUN composer dump-autoload --optimize --no-scripts
 
 FROM node:24-alpine AS node_builder
 
