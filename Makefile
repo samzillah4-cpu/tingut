@@ -1,7 +1,7 @@
 # VERSION defines the version for the docker containers.
 # To build a specific set of containers with a version,
 # you can use the VERSION as an arg of the docker build command (e.g make docker VERSION=0.0.2)
-VERSION ?= v0.0.1
+VERSION ?= latest
 
 # REGISTRY defines the registry where we store our images.
 # To push to a specific registry,
