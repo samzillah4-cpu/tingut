@@ -40,7 +40,6 @@ docker-run-php_fpm_tingut:
 		--add-host=host:172.21.0.1 \
 		--restart unless-stopped \
 		--env-file $(ENV_FILE_PATH) \
-		-v $(PWD)/.env:/var/www/html/.env \
 		$(REGISTRY)_php_fpm:$(VERSION)
 
 docker-run-nginx_tingut:
