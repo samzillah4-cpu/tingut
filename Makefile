@@ -9,8 +9,8 @@ VERSION ?= v0.0.1
 # You may also change the default value if you are using a different registry as a default
 # REGISTRY ?= registry.gitlab.com/laravel-in-kubernetes/laravel-app
 REGISTRY ?= denniskainga/tingut
-ENV_FILE ?= /var/www/garage/.env
-NETWORK ?= garage-net
+ENV_FILE ?= /var/www/tingut/.env
+NETWORK ?= tingut-net
 
 # Commands
 docker: docker-build docker-push
@@ -40,7 +40,7 @@ docker-pull-nginx:
 docker-network:
 	docker network create $(NETWORK) || true
 
-docker-prune-erp:
+docker-prune-tingut:
 	docker images "$(REGISTRY)*" --format "{{.Repository}}:{{.Tag}}" \
 	| grep -v "$(VERSION)" \
 	| xargs -r docker rmi -f
@@ -53,29 +53,6 @@ docker-run-php_fpm_garage:
 		--restart unless-stopped \
 		--env-file $(ENV_FILE) \
 		$(REGISTRY)_php_fpm:$(VERSION)
-
-docker-run-queue_worker_garage:
-	docker rm -f queue_worker_garage || true
-	docker run -d \
-		--name queue_worker_garage \
-		--network $(NETWORK) \
-		--restart unless-stopped \
-		--env-file $(ENV_FILE) \
-		--entrypoint "" \
-		$(REGISTRY)_php_fpm:$(VERSION) \
-		php /var/www/html/artisan queue:work --verbose --tries=3
-
-docker-run-reverb_garage:
-	docker rm -f reverb_garage || true
-	docker run -d \
-		--name reverb_garage \
-		--network $(NETWORK) \
-		--restart unless-stopped \
-		-p 6009:6001 \
-		--env-file $(ENV_FILE) \
-		--entrypoint "" \
-		$(REGISTRY)_php_fpm:$(VERSION) \
-		php /var/www/html/artisan reverb:start --debug -vvv --host=0.0.0.0 --port=6001
 
 docker-run-nginx_garage:
 	docker rm -f nginx_garage || true
