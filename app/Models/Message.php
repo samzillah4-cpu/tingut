@@ -7,20 +7,39 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $fillable = [
-        'chat_id',
-        'sender_type',
+        'sender_id',
+        'receiver_id',
+        'product_id',
+        'subject',
         'message',
+        'is_read',
     ];
 
     protected $casts = [
-        'sender_type' => 'string',
+        'is_read' => 'boolean',
     ];
 
     /**
-     * Get the chat this message belongs to.
+     * Get the sender of the message.
      */
-    public function chat()
+    public function sender()
     {
-        return $this->belongsTo(Chat::class);
+        return $this->belongsTo(User::class, 'sender_id');
+    }
+
+    /**
+     * Get the receiver of the message.
+     */
+    public function receiver()
+    {
+        return $this->belongsTo(User::class, 'receiver_id');
+    }
+
+    /**
+     * Get the product this message is about.
+     */
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }

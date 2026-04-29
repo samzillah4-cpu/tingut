@@ -1327,17 +1327,17 @@
             <!-- Features/Action Types Section -->
             <section class="features-section">
                 <div class="features-grid">
-                    <a href="<?php echo e(route('products.index', ['type' => 'exchange'])); ?>" class="feature-item text-decoration-none">
+                    <a href="<?php echo e(route('products.index', ['listing_type' => 'exchange'])); ?>" class="feature-item text-decoration-none">
                         <div class="feature-icon" style="color: var(--finn-blue);"><i class="fas fa-exchange-alt fa-2x"></i></div>
                         <div class="feature-title">Exchange</div>
                         <div class="feature-desc">Trade items with others</div>
                     </a>
-                    <a href="<?php echo e(route('products.index', ['type' => 'sale'])); ?>" class="feature-item text-decoration-none">
+                    <a href="<?php echo e(route('products.index', ['listing_type' => 'sale'])); ?>" class="feature-item text-decoration-none">
                         <div class="feature-icon" style="color: var(--finn-success);"><i class="fas fa-tag fa-2x"></i></div>
                         <div class="feature-title">For Sale</div>
                         <div class="feature-desc">Buy items directly</div>
                     </a>
-                    <a href="<?php echo e(route('products.index', ['type' => 'giveaway'])); ?>" class="feature-item text-decoration-none">
+                    <a href="<?php echo e(route('products.index', ['listing_type' => 'giveaway'])); ?>" class="feature-item text-decoration-none">
                         <div class="feature-icon" style="color: #6c757d;"><i class="fas fa-gift fa-2x"></i></div>
                         <div class="feature-title">Give Away</div>
                         <div class="feature-desc">Free items for those in need</div>

@@ -4,39 +4,27 @@
 
 @section('content')
     <div style="padding-top: 2rem;"></div>
-    <!-- Welcome Banner -->
-    <div class="card border-0 shadow-sm mb-4" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; border-radius: 16px;">
-        <div class="card-body p-1">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <h2 class="mb-1" style="font-size: 1.5rem;">Welcome back, Admin!</h2>
-                    <p class="mb-0 opacity-90" style="font-size: 0.875rem;">Here's a comprehensive overview of your platform's current status and recent activities.</p>
-                </div>
-                <div class="col-md-4 text-end">
-                    <i class="fas fa-chart-line" style="font-size: 3rem; opacity: 0.3;"></i>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Statistics Cards -->
     <div class="row g-3 mb-4">
         <!-- Total Users -->
         <div class="col-xl-2 col-lg-4 col-md-6">
-            <div class="card border-0 shadow-lg stat-card" style="background: linear-gradient(135deg, #165c60 0%, #1a6b6d 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
-                <div class="card-body p-2 text-center">
-                    <div class="d-flex justify-content-between align-items-start mb-1">
+            <div class="card border-0 shadow-xl stat-card glass-effect" style="background: linear-gradient(135deg, #165c60 0%, #1a6b6d 100%); color: white; border-radius: 16px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="card-body p-3 text-center position-relative">
+                    <div class="stat-bg-shape"></div>
+                    <div class="d-flex justify-content-between align-items-start mb-2">
                         <div class="stat-icon-wrapper">
                             <i class="fas fa-users stat-icon"></i>
                         </div>
                         <div class="stat-trend">
-                            <i class="fas fa-arrow-up text-white-50"></i>
+                            <i class="fas fa-arrow-up text-white-70"></i>
                         </div>
                     </div>
-                    <h4 class="mb-1 fw-bold">{{ $totalUsers }}</h4>
-                    <p class="mb-1 opacity-90 small">Total Users</p>
-                    <div class="progress mt-1" style="height: 3px;">
-                        <div class="progress-bar bg-white opacity-75" style="width: 75%"></div>
+                    <h4 class="mb-2 fw-bold display-6">{{ $totalUsers }}</h4>
+                    <p class="mb-2 opacity-90 small fw-medium">Total Users</p>
+                    <div class="progress mt-2" style="height: 4px; border-radius: 2px;">
+                        <div class="progress-bar bg-white opacity-90" style="width: 75%; border-radius: 2px;"></div>
                     </div>
                 </div>
             </div>
@@ -44,20 +32,21 @@
 
         <!-- Active Products -->
         <div class="col-xl-2 col-lg-4 col-md-6">
-            <div class="card border-0 shadow-lg stat-card" style="background: linear-gradient(135deg, #1a6b6d 0%, #165c60 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
-                <div class="card-body p-2 text-center">
-                    <div class="d-flex justify-content-between align-items-start mb-1">
+            <div class="card border-0 shadow-xl stat-card glass-effect" style="background: linear-gradient(135deg, #1a6b6d 0%, #165c60 100%); color: white; border-radius: 16px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="card-body p-3 text-center position-relative">
+                    <div class="stat-bg-shape"></div>
+                    <div class="d-flex justify-content-between align-items-start mb-2">
                         <div class="stat-icon-wrapper">
                             <i class="fas fa-box stat-icon"></i>
                         </div>
                         <div class="stat-trend">
-                            <i class="fas fa-arrow-up text-white-50"></i>
+                            <i class="fas fa-arrow-up text-white-70"></i>
                         </div>
                     </div>
-                    <h4 class="mb-1 fw-bold">{{ $activeProducts }}</h4>
-                    <p class="mb-1 opacity-90 small">Active Products</p>
-                    <div class="progress mt-1" style="height: 3px;">
-                        <div class="progress-bar bg-white opacity-75" style="width: 85%"></div>
+                    <h4 class="mb-2 fw-bold display-6">{{ $activeProducts }}</h4>
+                    <p class="mb-2 opacity-90 small fw-medium">Active Products</p>
+                    <div class="progress mt-2" style="height: 4px; border-radius: 2px;">
+                        <div class="progress-bar bg-white opacity-90" style="width: 85%; border-radius: 2px;"></div>
                     </div>
                 </div>
             </div>
@@ -65,20 +54,21 @@
 
         <!-- Total Exchanges -->
         <div class="col-xl-2 col-lg-4 col-md-6">
-            <div class="card border-0 shadow-lg stat-card" style="background: linear-gradient(135deg, #f9f2d6 0%, #f0e8c9 100%); color: #165c60; border-radius: 12px; transition: all 0.3s ease;">
-                <div class="card-body p-2 text-center">
-                    <div class="d-flex justify-content-between align-items-start mb-1">
-                        <div class="stat-icon-wrapper">
-                            <i class="fas fa-exchange-alt stat-icon"></i>
+            <div class="card border-0 shadow-xl stat-card glass-effect" style="background: linear-gradient(135deg, #f9f2d6 0%, #f0e8c9 100%); color: #165c60; border-radius: 16px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(20px); border: 1px solid rgba(249,242,214,0.2);">
+                <div class="card-body p-3 text-center position-relative">
+                    <div class="stat-bg-shape" style="background: rgba(22,92,96,0.1);"></div>
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="stat-icon-wrapper" style="background: rgba(22,92,96,0.2);">
+                            <i class="fas fa-exchange-alt stat-icon" style="color: #165c60;"></i>
                         </div>
                         <div class="stat-trend">
-                            <i class="fas fa-arrow-up text-white-50"></i>
+                            <i class="fas fa-arrow-up text-muted"></i>
                         </div>
                     </div>
-                    <h4 class="mb-1 fw-bold">{{ $totalExchanges }}</h4>
-                    <p class="mb-1 opacity-90 small">Total Exchanges</p>
-                    <div class="progress mt-1" style="height: 3px;">
-                        <div class="progress-bar" style="width: 65%; background-color: #165c60;"></div>
+                    <h4 class="mb-2 fw-bold display-6">{{ $totalExchanges }}</h4>
+                    <p class="mb-2 opacity-90 small fw-medium">Total Exchanges</p>
+                    <div class="progress mt-2" style="height: 4px; border-radius: 2px;">
+                        <div class="progress-bar" style="width: 65%; background-color: #165c60; border-radius: 2px;"></div>
                     </div>
                 </div>
             </div>
@@ -86,20 +76,21 @@
 
         <!-- Pending Exchanges -->
         <div class="col-xl-2 col-lg-4 col-md-6">
-            <div class="card border-0 shadow-lg stat-card" style="background: linear-gradient(135deg, #ffa726 0%, #fb8c00 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
-                <div class="card-body p-2 text-center">
-                    <div class="d-flex justify-content-between align-items-start mb-1">
+            <div class="card border-0 shadow-xl stat-card glass-effect" style="background: linear-gradient(135deg, #ffa726 0%, #fb8c00 100%); color: white; border-radius: 16px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="card-body p-3 text-center position-relative">
+                    <div class="stat-bg-shape"></div>
+                    <div class="d-flex justify-content-between align-items-start mb-2">
                         <div class="stat-icon-wrapper">
                             <i class="fas fa-clock stat-icon"></i>
                         </div>
                         <div class="stat-trend">
-                            <i class="fas fa-arrow-up text-white-50"></i>
+                            <i class="fas fa-arrow-up text-white-70"></i>
                         </div>
                     </div>
-                    <h4 class="mb-1 fw-bold">{{ $pendingExchanges }}</h4>
-                    <p class="mb-1 opacity-90 small">Pending Exchanges</p>
-                    <div class="progress mt-1" style="height: 3px;">
-                        <div class="progress-bar bg-white opacity-75" style="width: 60%"></div>
+                    <h4 class="mb-2 fw-bold display-6">{{ $pendingExchanges }}</h4>
+                    <p class="mb-2 opacity-90 small fw-medium">Pending Exchanges</p>
+                    <div class="progress mt-2" style="height: 4px; border-radius: 2px;">
+                        <div class="progress-bar bg-white opacity-90" style="width: 60%; border-radius: 2px;"></div>
                     </div>
                 </div>
             </div>
@@ -107,20 +98,21 @@
 
         <!-- Total Rentals -->
         <div class="col-xl-2 col-lg-4 col-md-6">
-            <div class="card border-0 shadow-lg stat-card" style="background: linear-gradient(135deg, #42a5f5 0%, #1976d2 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
-                <div class="card-body p-2 text-center">
-                    <div class="d-flex justify-content-between align-items-start mb-1">
+            <div class="card border-0 shadow-xl stat-card glass-effect" style="background: linear-gradient(135deg, #42a5f5 0%, #1976d2 100%); color: white; border-radius: 16px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="card-body p-3 text-center position-relative">
+                    <div class="stat-bg-shape"></div>
+                    <div class="d-flex justify-content-between align-items-start mb-2">
                         <div class="stat-icon-wrapper">
                             <i class="fas fa-calendar-alt stat-icon"></i>
                         </div>
                         <div class="stat-trend">
-                            <i class="fas fa-arrow-up text-white-50"></i>
+                            <i class="fas fa-arrow-up text-white-70"></i>
                         </div>
                     </div>
-                    <h4 class="mb-1 fw-bold">{{ $totalRentals }}</h4>
-                    <p class="mb-1 opacity-90 small">Total Rentals</p>
-                    <div class="progress mt-1" style="height: 3px;">
-                        <div class="progress-bar bg-white opacity-75" style="width: 70%"></div>
+                    <h4 class="mb-2 fw-bold display-6">{{ $totalRentals }}</h4>
+                    <p class="mb-2 opacity-90 small fw-medium">Total Rentals</p>
+                    <div class="progress mt-2" style="height: 4px; border-radius: 2px;">
+                        <div class="progress-bar bg-white opacity-90" style="width: 70%; border-radius: 2px;"></div>
                     </div>
                 </div>
             </div>
@@ -128,20 +120,21 @@
 
         <!-- Categories -->
         <div class="col-xl-2 col-lg-4 col-md-6">
-            <div class="card border-0 shadow-lg stat-card" style="background: linear-gradient(135deg, #165c60 0%, #165c60 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
-                <div class="card-body p-2 text-center">
-                    <div class="d-flex justify-content-between align-items-start mb-1">
+            <div class="card border-0 shadow-xl stat-card glass-effect" style="background: linear-gradient(135deg, #165c60 0%, #165c60 100%); color: white; border-radius: 16px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="card-body p-3 text-center position-relative">
+                    <div class="stat-bg-shape"></div>
+                    <div class="d-flex justify-content-between align-items-start mb-2">
                         <div class="stat-icon-wrapper">
                             <i class="fas fa-tags stat-icon"></i>
                         </div>
                         <div class="stat-trend">
-                            <i class="fas fa-arrow-up text-white-50"></i>
+                            <i class="fas fa-arrow-up text-white-70"></i>
                         </div>
                     </div>
-                    <h4 class="mb-1 fw-bold">{{ $totalCategories }}</h4>
-                    <p class="mb-1 opacity-90 small">Categories</p>
-                    <div class="progress mt-1" style="height: 3px;">
-                        <div class="progress-bar bg-white opacity-75" style="width: 90%"></div>
+                    <h4 class="mb-2 fw-bold display-6">{{ $totalCategories }}</h4>
+                    <p class="mb-2 opacity-90 small fw-medium">Categories</p>
+                    <div class="progress mt-2" style="height: 4px; border-radius: 2px;">
+                        <div class="progress-bar bg-white opacity-90" style="width: 90%; border-radius: 2px;"></div>
                     </div>
                 </div>
             </div>
@@ -152,17 +145,17 @@
     <div class="row g-4 mb-4">
         <!-- Enhanced User Distribution Chart -->
         <div class="col-xl-6">
-            <div class="card border-0 shadow-lg h-100" style="border-radius: 16px;">
-                <div class="card-header bg-white border-0 py-4 px-4">
+            <div class="card border-0 shadow-xl h-100 chart-card glass-effect" style="border-radius: 20px; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="card-header bg-transparent border-0 py-4 px-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h5 class="mb-1 fw-bold" style="color: var(--primary-color);">
-                                <i class="fas fa-chart-pie me-2"></i>User Distribution Analytics
+                            <h5 class="mb-1 fw-bold text-primary">
+                                <i class="fas fa-chart-pie me-2 text-primary"></i>User Distribution Analytics
                             </h5>
                             <p class="text-muted mb-0 small">Breakdown of user roles and activity</p>
                         </div>
                         <div class="dropdown">
-                            <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <button class="btn btn-outline-primary btn-sm dropdown-toggle sleek-btn" type="button" data-bs-toggle="dropdown">
                                 <i class="fas fa-filter me-1"></i>This Month
                             </button>
                             <ul class="dropdown-menu">
@@ -173,7 +166,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body d-flex align-items-center justify-content-center p-4">
+                <div class="card-body d-flex align-items-center justify-content-center p-4 position-relative">
+                    <div class="chart-bg-pattern"></div>
                     <div class="chart-container">
                         <canvas id="userChart" style="max-width: 100%; max-height: 100%;"></canvas>
                     </div>
@@ -183,17 +177,17 @@
 
         <!-- Monthly Growth Chart -->
         <div class="col-xl-6">
-            <div class="card border-0 shadow-lg h-100" style="border-radius: 16px;">
-                <div class="card-header bg-white border-0 py-4 px-4">
+            <div class="card border-0 shadow-xl h-100 chart-card glass-effect" style="border-radius: 20px; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="card-header bg-transparent border-0 py-4 px-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h5 class="mb-1 fw-bold" style="color: var(--primary-color);">
-                                <i class="fas fa-chart-line me-2"></i>Monthly Growth Trends
+                            <h5 class="mb-1 fw-bold text-primary">
+                                <i class="fas fa-chart-line me-2 text-primary"></i>Monthly Growth Trends
                             </h5>
                             <p class="text-muted mb-0 small">User, product, and exchange growth over time</p>
                         </div>
                         <div class="dropdown">
-                            <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <button class="btn btn-outline-primary btn-sm dropdown-toggle sleek-btn" type="button" data-bs-toggle="dropdown">
                                 <i class="fas fa-calendar me-1"></i>Last 12 Months
                             </button>
                             <ul class="dropdown-menu">
@@ -204,7 +198,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body d-flex align-items-center justify-content-center p-4">
+                <div class="card-body d-flex align-items-center justify-content-center p-4 position-relative">
+                    <div class="chart-bg-pattern"></div>
                     <div class="chart-container">
                         <canvas id="growthChart" style="max-width: 100%; max-height: 100%;"></canvas>
                     </div>
@@ -217,18 +212,19 @@
     <div class="row g-4 mb-4">
         <!-- Exchange Status Chart -->
         <div class="col-xl-6">
-            <div class="card border-0 shadow-lg h-100" style="border-radius: 16px;">
-                <div class="card-header bg-white border-0 py-4 px-4">
+            <div class="card border-0 shadow-xl h-100 chart-card glass-effect" style="border-radius: 20px; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="card-header bg-transparent border-0 py-4 px-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h5 class="mb-1 fw-bold" style="color: var(--primary-color);">
-                                <i class="fas fa-exchange-alt me-2"></i>Exchange Status Overview
+                            <h5 class="mb-1 fw-bold text-primary">
+                                <i class="fas fa-exchange-alt me-2 text-primary"></i>Exchange Status Overview
                             </h5>
                             <p class="text-muted mb-0 small">Current status of all exchanges</p>
                         </div>
                     </div>
                 </div>
-                <div class="card-body d-flex align-items-center justify-content-center p-4">
+                <div class="card-body d-flex align-items-center justify-content-center p-4 position-relative">
+                    <div class="chart-bg-pattern"></div>
                     <div class="chart-container">
                         <canvas id="exchangeChart" style="max-width: 100%; max-height: 100%;"></canvas>
                     </div>
@@ -238,18 +234,19 @@
 
         <!-- Product Status Chart -->
         <div class="col-xl-6">
-            <div class="card border-0 shadow-lg h-100" style="border-radius: 16px;">
-                <div class="card-header bg-white border-0 py-4 px-4">
+            <div class="card border-0 shadow-xl h-100 chart-card glass-effect" style="border-radius: 20px; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="card-header bg-transparent border-0 py-4 px-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h5 class="mb-1 fw-bold" style="color: var(--primary-color);">
-                                <i class="fas fa-box me-2"></i>Product Status Distribution
+                            <h5 class="mb-1 fw-bold text-primary">
+                                <i class="fas fa-box me-2 text-primary"></i>Product Status Distribution
                             </h5>
                             <p class="text-muted mb-0 small">Active vs inactive products</p>
                         </div>
                     </div>
                 </div>
-                <div class="card-body d-flex align-items-center justify-content-center p-4">
+                <div class="card-body d-flex align-items-center justify-content-center p-4 position-relative">
+                    <div class="chart-bg-pattern"></div>
                     <div class="chart-container">
                         <canvas id="productChart" style="max-width: 100%; max-height: 100%;"></canvas>
                     </div>
@@ -346,44 +343,45 @@
     <!-- Quick Actions Section -->
     <div class="row g-4 mt-2">
         <div class="col-12">
-            <div class="card border-0 shadow-lg" style="border-radius: 16px;">
-                <div class="card-header bg-white border-0 py-4 px-4">
-                    <h5 class="mb-1 fw-bold" style="color: var(--primary-color);">
-                        <i class="fas fa-rocket me-2"></i>Quick Actions
+            <div class="card border-0 shadow-xl glass-effect" style="border-radius: 20px; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.8);">
+                <div class="card-header bg-transparent border-0 py-4 px-4">
+                    <h5 class="mb-1 fw-bold text-primary">
+                        <i class="fas fa-rocket me-2 text-primary"></i>Quick Actions
                     </h5>
                     <p class="text-muted mb-0 small">Common administrative tasks</p>
                 </div>
-                <div class="card-body p-4">
+                <div class="card-body p-4 position-relative">
+                    <div class="quick-actions-bg-pattern"></div>
                     <div class="row g-3">
                         <div class="col-md-3">
                             <a href="{{ route('admin.users.create') }}" class="text-decoration-none">
-                                <div class="quick-action-card text-center p-2" style="border-radius: 12px; background: linear-gradient(135deg, #165c60 0%, #1a6b6d 100%); color: white; transition: all 0.3s ease;">
-                                    <i class="fas fa-user-plus fa-lg mb-1"></i>
-                                    <h6 class="mb-0 small">Add User</h6>
+                                <div class="quick-action-card text-center p-3 sleek-action" style="border-radius: 16px; background: linear-gradient(135deg, #165c60 0%, #1a6b6d 100%); color: white; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                                    <i class="fas fa-user-plus fa-2x mb-2"></i>
+                                    <h6 class="mb-0 fw-medium">Add User</h6>
                                 </div>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="{{ route('admin.categories.create') }}" class="text-decoration-none">
-                                <div class="quick-action-card text-center p-2" style="border-radius: 12px; background: linear-gradient(135deg, #1a6b6d 0%, #165c60 100%); color: white; transition: all 0.3s ease;">
-                                    <i class="fas fa-plus-circle fa-lg mb-1"></i>
-                                    <h6 class="mb-0 small">Add Category</h6>
+                                <div class="quick-action-card text-center p-3 sleek-action" style="border-radius: 16px; background: linear-gradient(135deg, #1a6b6d 0%, #165c60 100%); color: white; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                                    <i class="fas fa-plus-circle fa-2x mb-2"></i>
+                                    <h6 class="mb-0 fw-medium">Add Category</h6>
                                 </div>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="{{ route('admin.settings') }}" class="text-decoration-none">
-                                <div class="quick-action-card text-center p-2" style="border-radius: 12px; background: linear-gradient(135deg, #f9f2d6 0%, #f0e8c9 100%); color: #165c60; transition: all 0.3s ease;">
-                                    <i class="fas fa-cog fa-lg mb-1"></i>
-                                    <h6 class="mb-0 small">Settings</h6>
+                                <div class="quick-action-card text-center p-3 sleek-action" style="border-radius: 16px; background: linear-gradient(135deg, #f9f2d6 0%, #f0e8c9 100%); color: #165c60; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(10px); border: 1px solid rgba(249,242,214,0.3);">
+                                    <i class="fas fa-cog fa-2x mb-2"></i>
+                                    <h6 class="mb-0 fw-medium">Settings</h6>
                                 </div>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="{{ route('admin.blogs.index') }}" class="text-decoration-none">
-                                <div class="quick-action-card text-center p-2" style="border-radius: 12px; background: linear-gradient(135deg, #165c60 0%, #165c60 100%); color: white; transition: all 0.3s ease;">
-                                    <i class="fas fa-blog fa-lg mb-1"></i>
-                                    <h6 class="mb-0 small">Manage Blog</h6>
+                                <div class="quick-action-card text-center p-3 sleek-action" style="border-radius: 16px; background: linear-gradient(135deg, #165c60 0%, #165c60 100%); color: white; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                                    <i class="fas fa-blog fa-2x mb-2"></i>
+                                    <h6 class="mb-0 fw-medium">Manage Blog</h6>
                                 </div>
                             </a>
                         </div>
@@ -423,6 +421,8 @@
             color: white !important;
         }
 
+
+
         .card {
             border-radius: 16px;
             border: none;
@@ -445,16 +445,73 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.1);
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.08);
             border-radius: 50%;
-            transform: translate(30px, -30px);
+            transform: translate(40px, -40px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .stat-card:hover::before {
-            transform: translate(20px, -20px);
-            transition: transform 0.3s ease;
+            transform: translate(30px, -30px);
+        }
+
+        .stat-bg-shape {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .welcome-banner {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            animation: patternShift 20s ease-in-out infinite;
+        }
+
+        .welcome-icon-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .welcome-icon {
+            font-size: 4rem;
+            opacity: 0.2;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            animation: iconPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+
+        @keyframes patternShift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(10px, -10px) scale(1.05); }
+            66% { transform: translate(-10px, 10px) scale(0.95); }
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.1); opacity: 0.3; }
         }
 
         .stat-icon-wrapper {
@@ -486,6 +543,41 @@
             position: relative;
             height: 300px;
             width: 100%;
+            z-index: 2;
+        }
+
+        .chart-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .chart-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(22, 92, 96, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(249, 242, 214, 0.03) 0%, transparent 50%);
+            animation: patternShift 15s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .sleek-btn {
+            border-radius: 12px;
+            border: 2px solid;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sleek-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(22, 92, 96, 0.15);
+            background: rgba(22, 92, 96, 0.1);
         }
 
         .activity-feed {
@@ -527,6 +619,45 @@
         .quick-action-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-heavy);
+        }
+
+        .sleek-action {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sleek-action::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sleek-action:hover::before {
+            left: 100%;
+        }
+
+        .quick-actions-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(22, 92, 96, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(249, 242, 214, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 167, 38, 0.01) 0%, transparent 50%);
+            animation: patternShift 25s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .quick-action-card {
+            position: relative;
+            z-index: 2;
         }
 
         .btn {
@@ -588,17 +719,55 @@
             }
 
             .stat-card .card-body {
-                padding: 16px !important;
+                padding: 20px !important;
+            }
+
+            .welcome-banner .card-body {
+                padding: 24px !important;
+            }
+
+            .welcome-icon {
+                font-size: 3rem !important;
             }
 
             .quick-action-card {
-                height: 50px;
-                padding: 8px !important;
+                padding: 16px !important;
+            }
+
+            .quick-action-card i {
+                font-size: 1.5rem !important;
+                margin-bottom: 8px !important;
+            }
+
+            .sleek-action {
+                margin-bottom: 8px;
+            }
+
+            .chart-card {
+                margin-bottom: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-card {
+                margin-bottom: 12px;
+            }
+
+            .welcome-banner h2 {
+                font-size: 1.5rem !important;
+            }
+
+            .welcome-icon {
+                font-size: 2.5rem !important;
+            }
+
+            .quick-action-card {
+                padding: 12px !important;
             }
 
             .quick-action-card i {
                 font-size: 1.2rem !important;
-                margin-bottom: 4px !important;
+                margin-bottom: 6px !important;
             }
         }
 

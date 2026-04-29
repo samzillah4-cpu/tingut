@@ -42,16 +42,21 @@ class AuthenticatedSessionController extends Controller
             ])->onlyInput('email');
         }
 
-        // Attempt login
-        if (Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
-            $request->session()->regenerate();
+        // Generate and send OTP for login verification
+        $otp = Otp::createOtp($request->email, 'login');
 
-            return redirect()->intended(route('dashboard', absolute: false));
+        // Log OTP for localhost testing
+        if (app()->environment('local')) {
+            Log::info("🔐 LOGIN OTP for {$request->email}: {$otp->code}");
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        // Send OTP notification
+        Notification::route('mail', $request->email)->notify(new OtpNotification($otp, 'login'));
+
+        // Store email and type in session for OTP verification
+        session(['otp_email' => $request->email, 'otp_type' => 'login']);
+
+        return redirect()->route('otp.verify')->with('success', 'A verification code has been sent to your email.');
     }
 
     /**

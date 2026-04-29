@@ -247,6 +247,7 @@
             gap: 4px;
             overflow-x: auto;
             padding: 8px 0;
+            justify-content: center;
         }
 
         .nav-items::-webkit-scrollbar {
@@ -972,8 +973,7 @@
     </script>
 </head>
 <body>
-<!-- Worldclass Preloader -->
-<?php echo $__env->make('components.preloader', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+
 
 <!-- Header - Finn Style -->
 <header class="finn-header">
@@ -1069,10 +1069,24 @@
                     <?php if(strtolower($menu->name) !== 'products' && strtolower($menu->name) !== 'categories' && strtolower($menu->name) !== 'about'): ?>
                         <a href="<?php echo e($menu->url); ?>" <?php if($menu->open_in_new_tab): ?> target="_blank" <?php endif; ?>
                            class="nav-item <?php echo e(request()->is(trim($menu->url, '/')) ? 'active' : ''); ?>">
-                            <?php if(strtolower($menu->name) === 'about'): ?>
+                            <?php if(strtolower($menu->name) === 'about' || strtolower($menu->name) === 'about us'): ?>
                                 <i class="fas fa-info-circle"></i>
-                            <?php elseif(strtolower($menu->name) === 'contact'): ?>
+                            <?php elseif(strtolower($menu->name) === 'contact' || strtolower($menu->name) === 'contact us'): ?>
                                 <i class="fas fa-envelope"></i>
+                            <?php elseif(strtolower($menu->name) === 'blog'): ?>
+                                <i class="fas fa-blog"></i>
+                            <?php elseif(strtolower($menu->name) === 'services' || strtolower($menu->name) === 'service'): ?>
+                                <i class="fas fa-cogs"></i>
+                            <?php elseif(strtolower($menu->name) === 'faq' || strtolower($menu->name) === 'faqs'): ?>
+                                <i class="fas fa-question-circle"></i>
+                            <?php elseif(strtolower($menu->name) === 'help'): ?>
+                                <i class="fas fa-life-ring"></i>
+                            <?php elseif(strtolower($menu->name) === 'privacy' || strtolower($menu->name) === 'privacy policy'): ?>
+                                <i class="fas fa-shield-alt"></i>
+                            <?php elseif(strtolower($menu->name) === 'terms' || strtolower($menu->name) === 'terms of service'): ?>
+                                <i class="fas fa-file-contract"></i>
+                            <?php else: ?>
+                                <i class="fas fa-link"></i>
                             <?php endif; ?>
                             <span><?php echo e($menu->name); ?></span>
                         </a>

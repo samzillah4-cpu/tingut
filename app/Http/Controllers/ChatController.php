@@ -150,6 +150,9 @@ class ChatController extends Controller
             'message' => $request->message,
         ]);
 
+        // Mark all customer messages as read
+        $chat->messages()->where('sender_type', '!=', 'admin')->whereNull('read_at')->update(['read_at' => now()]);
+
         $chat->update(['last_message_at' => now()]);
 
         return redirect()->back()->with('success', 'Reply sent successfully.');

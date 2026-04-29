@@ -247,6 +247,7 @@
             gap: 4px;
             overflow-x: auto;
             padding: 8px 0;
+            justify-content: center;
         }
 
         .nav-items::-webkit-scrollbar {
@@ -972,8 +973,7 @@
     </script>
 </head>
 <body>
-<!-- Worldclass Preloader -->
-@include('components.preloader')
+
 
 <!-- Header - Finn Style -->
 <header class="finn-header">
@@ -1069,10 +1069,24 @@
                     @if(strtolower($menu->name) !== 'products' && strtolower($menu->name) !== 'categories' && strtolower($menu->name) !== 'about')
                         <a href="{{ $menu->url }}" @if($menu->open_in_new_tab) target="_blank" @endif
                            class="nav-item {{ request()->is(trim($menu->url, '/')) ? 'active' : '' }}">
-                            @if(strtolower($menu->name) === 'about')
+                            @if(strtolower($menu->name) === 'about' || strtolower($menu->name) === 'about us')
                                 <i class="fas fa-info-circle"></i>
-                            @elseif(strtolower($menu->name) === 'contact')
+                            @elseif(strtolower($menu->name) === 'contact' || strtolower($menu->name) === 'contact us')
                                 <i class="fas fa-envelope"></i>
+                            @elseif(strtolower($menu->name) === 'blog')
+                                <i class="fas fa-blog"></i>
+                            @elseif(strtolower($menu->name) === 'services' || strtolower($menu->name) === 'service')
+                                <i class="fas fa-cogs"></i>
+                            @elseif(strtolower($menu->name) === 'faq' || strtolower($menu->name) === 'faqs')
+                                <i class="fas fa-question-circle"></i>
+                            @elseif(strtolower($menu->name) === 'help')
+                                <i class="fas fa-life-ring"></i>
+                            @elseif(strtolower($menu->name) === 'privacy' || strtolower($menu->name) === 'privacy policy')
+                                <i class="fas fa-shield-alt"></i>
+                            @elseif(strtolower($menu->name) === 'terms' || strtolower($menu->name) === 'terms of service')
+                                <i class="fas fa-file-contract"></i>
+                            @else
+                                <i class="fas fa-link"></i>
                             @endif
                             <span>{{ $menu->name }}</span>
                         </a>

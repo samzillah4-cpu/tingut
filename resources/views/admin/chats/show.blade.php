@@ -23,9 +23,16 @@
                     </small>
                 </div>
             </div>
-            <a href="{{ route('admin.chats.index') }}" class="btn btn-outline-light btn-sm">
-                <i class="fas fa-arrow-left"></i>
-            </a>
+            <div class="d-flex align-items-center gap-2">
+                @if($chat->chat_type === 'customer_admin' && $chat->user)
+                    <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#customerDetailsModal" title="Customer Details">
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                @endif
+                <a href="{{ route('admin.chats.index') }}" class="btn btn-outline-light btn-sm">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
         </div>
 
         <!-- Chat Messages Area -->
@@ -127,6 +134,74 @@
             </form>
         </div>
     </div>
+
+    <!-- Customer Details Modal -->
+    @if($chat->chat_type === 'customer_admin' && $chat->user)
+    <div class="modal fade" id="customerDetailsModal" tabindex="-1" aria-labelledby="customerDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customerDetailsModalLabel">Customer Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Basic Information</h6>
+                            <table class="table table-sm">
+                                <tr>
+                                    <td><strong>ID:</strong></td>
+                                    <td>{{ $chat->user->id }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Name:</strong></td>
+                                    <td>{{ $chat->user->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Email:</strong></td>
+                                    <td>{{ $chat->user->email }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Phone:</strong></td>
+                                    <td>{{ $chat->user->phone ?? 'Not provided' }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Registered:</strong></td>
+                                    <td>{{ $chat->user->created_at->format('M d, Y') }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Activity Summary</h6>
+                            <table class="table table-sm">
+                                <tr>
+                                    <td><strong>Exchanges:</strong></td>
+                                    <td>{{ $chat->user->receivedExchanges()->count() + $chat->user->proposedExchanges()->count() }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rentals:</strong></td>
+                                    <td>{{ $chat->user->rentals()->count() }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Products:</strong></td>
+                                    <td>{{ $chat->user->products()->count() }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Location:</strong></td>
+                                    <td>{{ $chat->user->location ?? 'Not specified' }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="{{ route('admin.users.show', $chat->user) }}" class="btn btn-primary">View Full Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 @stop
 
 @section('css')

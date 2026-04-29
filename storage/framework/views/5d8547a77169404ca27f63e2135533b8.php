@@ -16,49 +16,39 @@
                 </div>
             </div>
 
-            <!-- Animated Loader -->
-            <div class="loader-animation">
-                <!-- Spinning Rings -->
-                <div class="loader-rings">
-                    <div class="ring ring-1"></div>
-                    <div class="ring ring-2"></div>
-                    <div class="ring ring-3"></div>
+        <!-- Simple Progress Loader -->
+        <div class="simple-loader">
+            <!-- Progress Steps -->
+            <div class="progress-steps">
+                <div class="step step-1 active">
+                    <div class="step-indicator">
+                        <div class="step-dot"></div>
+                    </div>
+                    <span class="step-label">Loading</span>
                 </div>
-
-                <!-- Pulsing Dots -->
-                <div class="loader-dots">
-                    <div class="dot dot-1"></div>
-                    <div class="dot dot-2"></div>
-                    <div class="dot dot-3"></div>
+                <div class="step step-2">
+                    <div class="step-indicator">
+                        <div class="step-dot"></div>
+                    </div>
+                    <span class="step-label">Processing</span>
                 </div>
+                <div class="step step-3">
+                    <div class="step-indicator">
+                        <div class="step-dot"></div>
+                    </div>
+                    <span class="step-label">Ready</span>
+                </div>
+            </div>
+        </div>
 
-                <!-- Wave Animation -->
-                <div class="loader-wave">
-                    <div class="wave-bar"></div>
-                    <div class="wave-bar"></div>
-                    <div class="wave-bar"></div>
-                    <div class="wave-bar"></div>
-                    <div class="wave-bar"></div>
+            <!-- Loading Status -->
+            <div class="loading-status">
+                <div class="status-text">
+                    <span id="statusText">Initializing...</span>
                 </div>
             </div>
 
-            <!-- Progress Bar -->
-            <div class="loader-progress">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="progress-text">
-                    <span id="progressText">0%</span>
-                </div>
-            </div>
 
-            <!-- Loading Messages -->
-            <div class="loader-messages">
-                <div class="message" data-message="Preparing your experience...">Preparing your experience...</div>
-                <div class="message" data-message="Loading amazing content...">Loading amazing content...</div>
-                <div class="message" data-message="Almost ready...">Almost ready...</div>
-                <div class="message" data-message="Welcome to TingUt.no!">Welcome to TingUt.no!</div>
-            </div>
         </div>
 
         <!-- Background Elements -->
@@ -73,53 +63,126 @@
 
 <style>
 /* Worldclass Preloader Styles */
-.worldclass-preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background: linear-gradient(135deg, #0f5057 0%, #1a6b73 50%, #0f5057 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        .worldclass-preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(15, 80, 87, 0.95) 0%, rgba(26, 107, 109, 0.95) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            visibility: visible;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
 .worldclass-preloader.fade-out {
     opacity: 0;
     visibility: hidden;
 }
 
-.preloader-overlay {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+        .preloader-overlay {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(250, 244, 215, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(250, 244, 215, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 40% 40%, rgba(15, 80, 87, 0.1) 0%, transparent 60%),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%, rgba(255, 255, 255, 0.03) 100%);
+            animation: subtleFloat 8s ease-in-out infinite;
+        }
 
-.loader-container {
-    text-align: center;
-    z-index: 10;
-    max-width: 400px;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-    animation: containerFloat 3s ease-in-out infinite;
-}
+        .loader-container {
+            text-align: center;
+            z-index: 10;
+            max-width: 480px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 32px;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow:
+                0 32px 64px rgba(0, 0, 0, 0.25),
+                inset 0 2px 0 rgba(255, 255, 255, 0.15);
+            animation: containerFloat 4s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), rgba(255,255,255,0.25), rgba(255,255,255,0.15), transparent);
+            animation: shimmer 4s ease-in-out infinite;
+            border-radius: 32px;
+        }
 
 @keyframes containerFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-8px) scale(1.02); }
+}
+
+@keyframes subtleFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
+    25% { transform: translate(10px, -10px) rotate(1deg); opacity: 0.4; }
+    50% { transform: translate(-5px, 5px) rotate(-1deg); opacity: 0.35; }
+    75% { transform: translate(-10px, -5px) rotate(0.5deg); opacity: 0.45; }
+}
+
+@keyframes patternShift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(10px, -10px) scale(1.05); }
+    66% { transform: translate(-10px, 10px) scale(0.95); }
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); opacity: 0.2; }
+    50% { transform: scale(1.1); opacity: 0.3; }
+}
+
+@keyframes dotPulse {
+    0%, 100% {
+        transform: scale(1.2);
+        box-shadow:
+            0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 40px rgba(255, 255, 255, 0.4),
+            0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.4);
+        box-shadow:
+            0 0 35px rgba(255, 255, 255, 1),
+            0 0 70px rgba(255, 255, 255, 0.6),
+            0 6px 18px rgba(0, 0, 0, 0.4);
+    }
+}
+
+@keyframes subtleFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
+    25% { transform: translate(10px, -10px) rotate(1deg); opacity: 0.4; }
+    50% { transform: translate(-5px, 5px) rotate(-1deg); opacity: 0.35; }
+    75% { transform: translate(-10px, -5px) rotate(0.5deg); opacity: 0.45; }
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: -100%; }
 }
 
 /* Logo Section */
@@ -137,181 +200,204 @@
 }
 
 @keyframes logoGlow {
-    0% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
-    100% { box-shadow: 0 10px 40px rgba(250, 244, 215, 0.4); }
+    0% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.1); }
+    100% { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.2); }
 }
 
 .loader-brand {
     animation: brandFadeIn 1s ease-out 0.5s both;
 }
 
-.loader-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #faf4d7;
-    margin: 0 0 0.5rem 0;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
+        .loader-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 0.8rem 0;
+            text-shadow:
+                0 2px 20px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, rgba(250, 244, 215, 0.9) 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
 
-.loader-subtitle {
-    font-size: 1rem;
-    color: rgba(250, 244, 215, 0.8);
-    margin: 0;
-    font-weight: 400;
-}
+        .loader-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin: 0 0 2rem 0;
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            opacity: 0.9;
+        }
 
-/* Loader Animation */
-.loader-animation {
+/* Simple Progress Loader */
+.simple-loader {
     margin: 2rem 0;
     position: relative;
-}
-
-/* Spinning Rings */
-.loader-rings {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 1.5rem auto;
-}
-
-.ring {
-    position: absolute;
-    border: 3px solid rgba(250, 244, 215, 0.3);
-    border-radius: 50%;
-    animation: spin 2s linear infinite;
-}
-
-.ring-1 {
-    width: 120px;
-    height: 120px;
-    top: 0;
-    left: 0;
-    border-top-color: #faf4d7;
-    animation-duration: 2s;
-}
-
-.ring-2 {
-    width: 90px;
-    height: 90px;
-    top: 15px;
-    left: 15px;
-    border-right-color: #faf4d7;
-    animation-duration: 1.5s;
-    animation-direction: reverse;
-}
-
-.ring-3 {
-    width: 60px;
-    height: 60px;
-    top: 30px;
-    left: 30px;
-    border-bottom-color: #faf4d7;
-    animation-duration: 1s;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Pulsing Dots */
-.loader-dots {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin-bottom: 1.5rem;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    background: #faf4d7;
+/* Progress Steps */
+.progress-steps {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    opacity: 0.3;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0.9);
+}
+
+.step.active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.step.completed {
+    opacity: 0.8;
+    transform: scale(1);
+}
+
+.step-indicator {
+    position: relative;
+}
+
+.step-dot {
+    width: 16px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    animation: pulse 1.5s ease-in-out infinite;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.dot-1 { animation-delay: 0s; }
-.dot-2 { animation-delay: 0.2s; }
-.dot-3 { animation-delay: 0.4s; }
+.step.active .step-dot {
+    background: #ffffff;
+    border-color: #ffffff;
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.8),
+        0 0 40px rgba(255, 255, 255, 0.4);
+    animation: dotPulse 1.8s ease-in-out infinite;
+    transform: scale(1.2);
+}
 
-@keyframes pulse {
+.step.completed .step-dot {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.step-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    text-align: center;
+    min-width: 80px;
+    transition: all 0.4s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.step.active .step-label {
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.step.completed .step-label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Connection Lines */
+.progress-steps {
+    --progress-width: 0%;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 32px;
+    right: 32px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+    z-index: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.progress-steps::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 32px;
+    height: 2px;
+    background: linear-gradient(90deg, #ffffff 0%, rgba(15, 80, 87, 0.9) 100%);
+    border-radius: 1px;
+    z-index: 1;
+    width: var(--progress-width);
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.8),
+        0 2px 8px rgba(15, 80, 87, 0.4);
+}
+
+/* Loading Status */
+.loading-status {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.status-text {
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.3);
+    animation: textGlow 2.5s ease-in-out infinite;
+    letter-spacing: 0.8px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    display: inline-block;
+    min-width: 200px;
+}
+
+@keyframes textGlow {
     0%, 100% {
+        opacity: 0.9;
         transform: scale(1);
-        opacity: 0.7;
     }
     50% {
-        transform: scale(1.2);
         opacity: 1;
+        transform: scale(1.02);
     }
 }
 
+        .progress-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
 
 
-/* Progress Bar */
-.loader-progress {
-    margin-top: 1.5rem;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 0.5rem;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #faf4d7 0%, #0f5057 100%);
-    border-radius: 2px;
-    width: 0%;
-    transition: width 0.3s ease;
-    animation: progressShimmer 2s ease-in-out infinite;
-}
-
-@keyframes progressShimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-}
-
-.progress-text {
-    font-size: 0.875rem;
-    color: rgba(250, 244, 215, 0.8);
-    font-weight: 500;
-}
-
-/* Loading Messages */
-.loader-messages {
-    margin-top: 1rem;
-    height: 1.5rem;
-    overflow: hidden;
-}
-
-.message {
-    animation: messageSlide 8s ease-in-out infinite;
-    opacity: 0;
-    transform: translateY(20px);
-    font-size: 0.875rem;
-    color: rgba(250, 244, 215, 0.9);
-    font-weight: 400;
-}
-
-.message:nth-child(1) { animation-delay: 0s; }
-.message:nth-child(2) { animation-delay: 2s; }
-.message:nth-child(3) { animation-delay: 4s; }
-.message:nth-child(4) { animation-delay: 6s; }
-
-@keyframes messageSlide {
-    0%, 20% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    25%, 100% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-}
 
 /* Background Elements */
 .preloader-bg-elements {
@@ -324,12 +410,13 @@
     pointer-events: none;
 }
 
-.bg-shape {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(250, 244, 215, 0.1) 0%, transparent 70%);
-    animation: shapeFloat 6s ease-in-out infinite;
-}
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(250, 244, 215, 0.08) 0%, transparent 80%);
+            backdrop-filter: blur(10px);
+            animation: shapeFloat 8s ease-in-out infinite;
+        }
 
 .shape-1 {
     width: 200px;
@@ -365,12 +452,16 @@
 
 @keyframes shapeFloat {
     0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-        opacity: 0.3;
+        transform: translateY(0px) rotate(0deg) scale(1);
+        opacity: 0.15;
     }
-    50% {
-        transform: translateY(-20px) rotate(180deg);
-        opacity: 0.6;
+    33% {
+        transform: translateY(-15px) rotate(120deg) scale(1.1);
+        opacity: 0.25;
+    }
+    66% {
+        transform: translateY(10px) rotate(240deg) scale(0.9);
+        opacity: 0.2;
     }
 }
 
@@ -378,50 +469,72 @@
 @media (max-width: 768px) {
     .loader-container {
         max-width: 90%;
-        padding: 1.5rem;
-        margin: 1rem;
+        padding: 2.5rem 2rem;
     }
 
     .loader-title {
-        font-size: 1.5rem;
+        font-size: 2.4rem;
     }
 
     .loader-subtitle {
-        font-size: 0.875rem;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
     }
 
-    .loader-rings {
-        width: 100px;
-        height: 100px;
+    .progress-steps {
+        gap: 2rem;
     }
 
-    .ring-1 { width: 100px; height: 100px; }
-    .ring-2 { width: 75px; height: 75px; top: 12.5px; left: 12.5px; }
-    .ring-3 { width: 50px; height: 50px; top: 25px; left: 25px; }
+    .step-label {
+        font-size: 0.8rem;
+        min-width: 60px;
+    }
 
-    .loader-logo {
-        width: 60px;
-        height: 60px;
+    .status-text {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+        min-width: 180px;
     }
 }
 
 @media (max-width: 480px) {
     .loader-container {
-        padding: 1rem;
+        padding: 2rem 1.5rem;
     }
 
     .loader-title {
-        font-size: 1.25rem;
+        font-size: 2rem;
+        margin-bottom: 0.6rem;
     }
 
-    .loader-rings {
-        width: 80px;
-        height: 80px;
+    .loader-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
     }
 
-    .ring-1 { width: 80px; height: 80px; }
-    .ring-2 { width: 60px; height: 60px; top: 10px; left: 10px; }
-    .ring-3 { width: 40px; height: 40px; top: 20px; left: 20px; }
+    .progress-steps {
+        gap: 1.5rem;
+    }
+
+    .step {
+        gap: 0.6rem;
+    }
+
+    .step-dot {
+        width: 14px;
+        height: 14px;
+    }
+
+    .step-label {
+        font-size: 0.75rem;
+        min-width: 50px;
+    }
+
+    .status-text {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        min-width: 160px;
+    }
 }
 
 /* Animation Delays */
@@ -438,25 +551,60 @@
 </style>
 
 <script>
-// Worldclass Preloader JavaScript
+// Simple Progress Preloader JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('worldclass-preloader');
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.getElementById('progressText');
+    const statusText = document.getElementById('statusText');
+    const steps = document.querySelectorAll('.step');
+    const progressLine = document.querySelector('.progress-steps::after');
 
     if (!preloader) return;
 
-    let progress = 0;
-    const targetProgress = 100;
-    const duration = 3000; // 3 seconds
-    const increment = targetProgress / (duration / 50);
+    const loadingMessages = [
+        'Initializing...',
+        'Loading resources...',
+        'Connecting to server...',
+        'Almost ready...',
+        'Welcome aboard!'
+    ];
 
-    // Progress animation
-    const progressInterval = setInterval(() => {
-        progress += increment;
-        if (progress >= targetProgress) {
-            progress = targetProgress;
-            clearInterval(progressInterval);
+    let messageIndex = 0;
+    let currentStep = 0;
+    const messageDuration = 900; // Duration per message in ms
+
+    // Function to activate next step
+    function activateStep(stepIndex) {
+        steps.forEach((step, index) => {
+            if (index < stepIndex) {
+                step.classList.remove('active');
+                step.classList.add('completed');
+            } else if (index === stepIndex) {
+                step.classList.add('active');
+                step.classList.remove('completed');
+            } else {
+                step.classList.remove('active', 'completed');
+            }
+        });
+
+        // Update progress line width
+        const progressWidth = ((stepIndex + 1) / steps.length) * 100;
+        const progressContainer = document.querySelector('.progress-steps');
+        if (progressContainer) {
+            progressContainer.style.setProperty('--progress-width', progressWidth + '%');
+        }
+    }
+
+    // Status message and step animation
+    const messageInterval = setInterval(() => {
+        messageIndex++;
+        currentStep = Math.min(messageIndex, steps.length - 1);
+
+        if (messageIndex >= loadingMessages.length) {
+            messageIndex = loadingMessages.length - 1;
+            clearInterval(messageInterval);
+
+            // Activate final step
+            activateStep(steps.length - 1);
 
             // Hide preloader after a short delay
             setTimeout(() => {
@@ -464,41 +612,50 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     preloader.style.display = 'none';
                 }, 800);
-            }, 500);
+            }, 1200);
+        } else {
+            // Activate current step
+            activateStep(currentStep);
         }
 
-        // Update progress bar and text
-        progressFill.style.width = progress + '%';
-        progressText.textContent = Math.round(progress) + '%';
-    }, 50);
+        // Update status text
+        if (statusText) {
+            statusText.textContent = loadingMessages[messageIndex];
+        }
+    }, messageDuration);
 
     // Handle page load completion
     window.addEventListener('load', function() {
-        // Ensure minimum loading time
+        // Ensure minimum loading time and complete all steps
         setTimeout(() => {
-            if (progress < targetProgress) {
-                progress = targetProgress;
-                progressFill.style.width = '100%';
-                progressText.textContent = '100%';
+            if (statusText && statusText.textContent !== 'Welcome aboard!') {
+                statusText.textContent = 'Welcome aboard!';
+                activateStep(steps.length - 1); // Complete all steps
 
                 setTimeout(() => {
                     preloader.classList.add('fade-out');
                     setTimeout(() => {
                         preloader.style.display = 'none';
                     }, 800);
-                }, 300);
+                }, 1000);
             }
-        }, 1000);
+        }, 300);
     });
 
-    // Fallback: hide preloader after 5 seconds max
+    // Fallback: hide preloader after 6 seconds max
     setTimeout(() => {
         if (preloader.style.display !== 'none') {
-            preloader.classList.add('fade-out');
+            if (statusText) {
+                statusText.textContent = 'Welcome aboard!';
+            }
+            activateStep(steps.length - 1);
             setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 800);
+                preloader.classList.add('fade-out');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 800);
+            }, 500);
         }
-    }, 5000);
+    }, 6000);
 });
 </script><?php /**PATH C:\xampp\htdocs\bytte.no\resources\views/components/preloader.blade.php ENDPATH**/ ?>
